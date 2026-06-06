@@ -29,14 +29,6 @@
 
 ## Installation
 
-### Google Play
-
-![](https://raw.githubusercontent.com/pioug/google-play-badges/06ccd9252af1501613da2ca28eaffe31307a4e6d/svg/English.svg)
-
-**[Get it on Google Play](https://play.google.com/store/apps/details?id=io.shubham0204.smollmandroid)**
-
-### GitHub
-
 1. Download the latest APK from [GitHub Releases](https://github.com/shubham0204/SmolChat-Android/releases/) and transfer it to your Android device.
 2. If your device does not downloading APKs from untrusted sources, search for **how to allow downloading APKs from unknown sources** for your device.
 
