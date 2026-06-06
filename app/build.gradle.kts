@@ -22,12 +22,9 @@ android {
     }
 
     signingConfigs {
-        create("release") {
-            storeFile file(System.getenv("RELEASE_KEYSTORE") ?: "keystore.jks")
-            storePassword = System.getenv("RELEASE_KEYSTORE_PASSWORD")
-            keyAlias = System.getenv("RELEASE_KEYSTORE_ALIAS")
-            keyPassword = System.getenv("RELEASE_KEY_PASSWORD")
-        }
+      release {
+        // only set keystore when signingEnabled
+      }
     }
 
     // https://gitlab.com/fdroid/fdroiddata/-/merge_requests/21563#note_2890971890
@@ -38,7 +35,7 @@ android {
 
     buildTypes {
       release {
-        signingConfig signingConfigs.release
+        signingConfig null
       }
     }
 
