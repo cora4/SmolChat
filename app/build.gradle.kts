@@ -21,12 +21,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
-      release {
-        // only set keystore when signingEnabled
-      }
-    }
-
     // https://gitlab.com/fdroid/fdroiddata/-/merge_requests/21563#note_2890971890
     dependenciesInfo {
         includeInApk = false
@@ -35,7 +29,6 @@ android {
 
     buildTypes {
       release {
-        signingConfig null
       }
     }
 
