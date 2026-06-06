@@ -2,8 +2,7 @@ name: Build and Release Android APK
 
 on:
   push:
-    tags:
-      - 'v*'
+    workflow_dispatch: # allows manual triggering
 
 jobs:
   build_and_release_apk:
@@ -29,24 +28,10 @@ jobs:
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
-      - name: Decode keystore
-        env:
-          ENCODED_STRING: ${{ secrets.KEYSTORE_BASE_64 }}
-          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
-          RELEASE_KEYSTORE_ALIAS: ${{ secrets.RELEASE_KEYSTORE_ALIAS }}
-          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
-        run: |
-          echo $ENCODED_STRING > keystore-b64.txt
-          base64 -d keystore-b64.txt > keystore.jks
-
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Build APK
-        env:
-          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
-          RELEASE_KEYSTORE_ALIAS: ${{ secrets.RELEASE_KEYSTORE_ALIAS }}
-          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
         run: ./gradlew assembleRelease --stacktrace
 
       - name: Create a release
