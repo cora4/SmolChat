@@ -1,9 +1,7 @@
 name: Build and Release Android APK
 
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch: # allows manual triggering
 
 jobs:
   build_and_release_apk:
