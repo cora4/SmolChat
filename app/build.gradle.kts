@@ -38,11 +38,7 @@ android {
 
     buildTypes {
       release {
-        if (signingEnabled) {
-          signingConfig signingConfigs.release
-        } else {
-          signingConfig null
-        }
+        signingConfig signingConfigs.release
       }
     }
 
